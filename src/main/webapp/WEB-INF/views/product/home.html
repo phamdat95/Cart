@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flower</title>
+    <style>
+        h1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>LIST OF THE PRODUCTS</h1>
+<a th:href="@{/home/p1}"><img src="/resources/1.png" height="250" width="170" border="1"/></a>
+<a th:href="@{/home/p2}"><img src="/resources/2.png" height="250" width="170" border="1"/></a>
+<a th:href="@{/home/p3}"><img src="/resources/3.png" height="250" width="170" border="1"/></a>
+<a th:href="@{/home/p4}"><img src="/resources/4.png" height="250" width="170" border="1"/></a>
+<div>
+    <a th:href="@{/home/cart}">Go to your cart</a>
+</div>
+</body>
+</html>

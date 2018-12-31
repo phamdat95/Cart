@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 600px;
+        }
+        td{
+            font-size: 20px;
+            border: 0;
+        }
+        .aa{
+            border-top: 0;
+        }
+        .bb{
+            width: 110px;
+        }
+        .size{
+            width: 20px;
+        }
+        .delete{
+            background: aqua;
+            height: 25px;
+            width: 25px;
+            position: absolute;
+            top: 45px;
+            left: 15px;
+        }
+    </style>
+</head>
+<body>
+<table border="1" >
+    <tr>
+        <td>YOUR CART</td>
+    </tr>
+</table>
+<form action="/home/cart" method="post" th:object="${vote}">
+<table border="1" class="aa" th:if="${vote.getQuantity()}">
+    <tr>
+        <td class="bb"><img src="/resources/1.png" height="110" width="100" border="1"/></td>
+        <td>
+            <a>Product 1</a><br>
+            <a>Code of product:  4564</a><br>
+            <a>Single price:     350.000 VND</a><br>
+            <a>Quantity:         <input type="text" th:field="*{quantity}" class="size"></a><br>
+            <span th:text="${message}"></span>
+        </td>
+        <td>
+            <a>Price:</a><br>
+            <a th:text="${inter * 350000}"></a> VND
+        </td>
+        <td><input type="submit" value="Change"></td>
+    </tr>
+</table>
+</form>
+<form action="/home/delete" method="post" th:object="${vote}">
+    <div th:if="${vote.getQuantity()}">
+        <input type="hidden" th:field="*{quantity}">
+        <input type="submit" value="X" class="delete">
+    </div>
+</form>
+<div>
+    <a th:href="@{/home}">Go to home page</a>
+</div>
+</body>
+</html>
